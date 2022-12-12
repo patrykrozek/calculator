@@ -1,6 +1,114 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
+
+double add(double a,double b) // Sygnatura funkcji
+{
+    return a + b;
+}
+double min(double num1,double num2) // Sygnatura funkcji
+{
+    return num1 - num2;
+}
+double multiply(double num1,double num2) // Sygnatura funkcji
+{
+    return num1 * num2;
+}
+double divide(double num1,double num2) // Sygnatura funkcji
+{
+    return num1 / num2;
+}
+void printer(double a,double b,char op,double w) // Sygnatura funkcji
+{
+    std::cout << a << op << b << " =" << w << std::endl;
+}
+
+void calculator() {
+    double num1; 
+    char operation;
+    double num2;
+    double wynik;
+    std::cout << "Wypisz dzialanie, ktore chcesz wykonac" << std::endl;
+    std::cin >> num1 >> operation >> num2;
+    switch (operation)
+            {
+                case '-': wynik = min(num1,num2); break;
+                case '+': wynik = add(num1,num2); break;
+                case '/': wynik = divide(num1,num2); break;
+                case '*': wynik = multiply(num1,num2); break;
+                default: std::cout << "Niewlasciwa komenda" << std::endl; return;
+            }
+    printer(num1, num2, operation, wynik);
+} 
+
+void printer(double a,double b,std::string kasza){
+    std::cout << "Liczba " << a << " jest " << kasza << b << std::endl;
+}
+
+void porownanie() {
+    std::cout << "Wypisz liczby, ktore chcesz porownac" << std::endl;
+    double num1, num2;
+    std::cin >> num1 >> num2;
+    if(num1>num2){
+        printer(num1,num2,"wieksza od ");
+        return;
+    }
+    if(num1<num2){
+        printer(num1,num2,"mniejsza od ");
+        return;
+    }
+    printer(num1,num2,"rowna ");
+    return;
+}
+
+int main()
+{
+    int program;
+    std::cout << std::endl;
+    std::cout << "** Zajebisty kalkulator **" << std::endl <<"Wybierz tryb, w ktorym chcesz pracowac" << std::endl;
+    std::cout << "1. Tyb kalkulator - wybierz 1" << std::endl;
+    std::cout << "2. Porownanie liczb - wybierz 2" << std::endl;
+    std::cin >> program;
+
+    switch (program) {
+        case 1: 
+            calculator();
+            break;
+        case 2:
+            porownanie();
+            break;
+        default: 
+            std::cout << "Niewlasciwa komenda" << std::endl;
+            break;
+    }
+return 0;
+}
+
+
+
+
+/*
+    colector(num1, operation, num2);
+    
+ switch (operation)
+            {
+
+
+                case '-': wynik = min(num1,num2); break;
+                case '+': wynik = add(num1,num2); break;
+                case '/': wynik = divide(num1,num2); break;
+                case '*': wynik = multiply(num1,num2); break;
+                case 'porownanie': wynik = porownanie(num1,num2, 0.0000001f); break;
+                default: std::cout << "Niewlasciwa komenda" << std::endl;
+            }
+
+   printer(num1, num2, operation, wynik);
+
+    */
+
+
+
+/*
 bool miniority(double a, double b, double epsilon = 0.0000001f){
     if((a-b) < epsilon) {
         return 1;
@@ -24,6 +132,17 @@ bool equality(double a, double b, double epsilon = 0.0000001f){
     else {
         return 0;
     }
+}
+*/
+
+
+/*
+string porownanie(double a, double b, double epsilon = 0.0000001f) {
+    string c;
+    if((a-b) < epsilon && (a-b)>= 0) {
+       c = "These two variables are equal" ;
+    }
+    return c;
 }
 
 void colector(double & num1, char & operation, double & num2) {
@@ -50,19 +169,18 @@ double divide(double num1,double num2) // Sygnatura funkcji
 }
 void printer(double a,double b,char op,double w) // Sygnatura funkcji
 {
-    std::cout << a << op << b << "  To jest kurwa wynik:" << w << std::endl;
+    std::cout << a << op << b << "  To jest wynik:" << w << std::endl;
 }
 
-int main()
-{
-    double num1, num2;
-    
-    char operation;
-    double wynik;
-    std::cout << "** Zajebisty kalkulator **" << endl <<"Wypisz dzialanie, ktore chcesz wykonac" << endl;
-    
-    colector(num1, operation, num2);
-    
+*/
+
+
+
+
+
+
+
+
 
     /*std::cin >> num1 >> operation >> num2;*/
 
@@ -77,27 +195,11 @@ int main()
                 case '/': std::cout << num1 << operation << num2 << "/" << num1 / num2 << std::endl; break;
                 case '*': std::cout << num1 << operation << num2 << "*" << num1 * num2 << std::endl; break;
 
-                default: cout << "Niewlasciwa komenda" << endl;
+                default: std::cout << "Niewlasciwa komenda" << std::endl;
             }
     */
-    switch (operation)
-            {
-
-
-                case '-': wynik = min(num1,num2); break;
-                case '+': wynik = add(num1,num2); break;
-                case '/': wynik = divide(num1,num2); break;
-                case '*': wynik = multiply(num1,num2); break;
-                case '<': wynik = miniority(num1,num2, 0.0000001f); break;
-                case '>': wynik = majority(num1,num2, 0.0000001f); break;
-                case '=': wynik = equality(num1,num2, 0.0000001f); break;
-                default: cout << "Niewlasciwa komenda" << endl;
-            }
+   
 
             
             
-    printer(num1, num2, operation, wynik);
-
-    return 0;
-}
-
+ 
