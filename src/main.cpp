@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "../include/reverse.hpp"
 
 
 double add(double a,double b) // Sygnatura funkcji
@@ -63,11 +64,11 @@ void porownanie() {
 
 int main()
 {
-    int program;
     std::cout << std::endl;
     std::cout << "** Zajebisty kalkulator **" << std::endl <<"Wybierz tryb, w ktorym chcesz pracowac" << std::endl;
     std::cout << "1. Tyb kalkulator - wybierz 1" << std::endl;
     std::cout << "2. Porownanie liczb - wybierz 2" << std::endl;
+    int program;
     std::cin >> program;
 
     switch (program) {
