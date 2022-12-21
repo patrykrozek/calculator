@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "../include/reverse.hpp"
+#include "../include/declarationfile.hpp"
+#include "../include/classfactory.hpp"
 
 
 double add(double a,double b) // Sygnatura funkcji
@@ -65,9 +66,12 @@ void porownanie() {
 int main()
 {
     std::cout << std::endl;
-    std::cout << "** Zajebisty kalkulator **" << std::endl <<"Wybierz tryb, w ktorym chcesz pracowac" << std::endl;
+    std::cout << "** Pojebany kalkulator **" << std::endl <<"Wybierz tryb, w ktorym chcesz pracowac" << std::endl;
     std::cout << "1. Tyb kalkulator - wybierz 1" << std::endl;
     std::cout << "2. Porownanie liczb - wybierz 2" << std::endl;
+    std::cout << "3. Odwrocenie stringa - wybierz 3" << std::endl;
+    std::cout << "4. Odwrocenie stringa, druga metoda - wybierz 4" << std::endl;
+    std::cout << "5. Fabryka misi - wybierz 5" << std::endl;
     int program;
     std::cin >> program;
 
@@ -78,6 +82,17 @@ int main()
         case 2:
             porownanie();
             break;
+        case 3:
+            reverse_function();
+        break;
+
+        case 4:
+            reverse_function2();
+        break;
+          case 5:
+            bear_factory();
+        break;
+
         default: 
             std::cout << "Niewlasciwa komenda" << std::endl;
             break;
